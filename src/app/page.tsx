@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import MessageCard from "@/components/board/MessageCard";
 import TemplateSlider from "@/components/slider/TemplateSlider";
+import PricingSection from "@/components/home/PricingSection";
+import HowItWorksSection from "@/components/home/HowItWorksSection";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -110,9 +113,19 @@ export default function Home() {
             message="Mãi nhớ những buổi ăn trưa cùng nhau 😄"
             rotate="rotate-[-1deg]"
           />
-
         </motion.div>
+
+        {/* How It Works Section */}
+        <HowItWorksSection />
+
+        {/* Pricing Section */}
+        <PricingSection />
+
       </section>
+
+      {/* Footer Section */}
+      <Footer />
+      
     </main>
   );
 }
