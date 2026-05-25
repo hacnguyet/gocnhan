@@ -10,7 +10,7 @@ const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-logo",
-});git 
+});
 
 export const metadata: Metadata = {
   title: "Góc Nhắn",

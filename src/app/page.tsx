@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import MessageCard from "@/components/board/MessageCard";
+import TemplateSlider from "@/components/slider/TemplateSlider";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-orange-50 via-pink-50 to-yellow-50">
+    <main className="relative min-h-screen overflow-x-hidden from-orange-50 via-pink-50 to-yellow-50">
 
       {/* Background Blobs */}
       <div className="absolute left-[-100px] top-[-100px] h-[300px] w-[300px] rounded-full bg-pink-200 opacity-40 blur-3xl" />
@@ -25,7 +26,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto max-w-6xl"
+          className="mx-auto max-w-7xl"
         >
 
           {/* Categories */}
@@ -53,19 +54,17 @@ export default function Home() {
 
           </div>
 
-          <h1 className="text-5xl font-bold leading-tight text-neutral-800 md:text-7xl">
-            Cùng nhau tạo nên
-            <span className="block text-orange-500">
-              một góc kỷ niệm ✨
-            </span>
-          </h1>
+          {/* Template Slider */}
+          <TemplateSlider />
 
-          <p className="mt-6 text-lg leading-relaxed text-neutral-600 md:text-xl">
+          {/* Description */}
+          <p className="mx-auto mt-10 max-w-3xl text-lg leading-relaxed text-neutral-600 md:text-xl">
             Tạo thiệp nhóm online để gửi lời chúc, lời cảm ơn
-            và những kỷ niệm đáng nhớ dành cho bạn bè, đồng nghiệp
-            và người thân yêu.
+            và những kỷ niệm đáng nhớ dành cho bạn bè,
+            đồng nghiệp và người thân yêu.
           </p>
 
+          {/* CTA */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
 
             <button className="rounded-full bg-orange-500 px-8 py-4 text-lg font-medium text-white transition hover:scale-105 hover:bg-orange-600">
