@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${inter.className} ${dancingScript.variable}`}>
-        {children}
+        <div className="pt-17">{children}</div>
       </body>
     </html>
   );

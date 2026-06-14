@@ -1,124 +1,147 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 
-import "swiper/css";
-import "swiper/css/navigation";
+const categories = [
+  "Sinh nhật",
+  "Chia tay đồng nghiệp",
+  "Tốt nghiệp",
+  "Tri ân thầy cô",
+  "Đám cưới",
+  "Bé yêu",
+  "Khác",
+];
 
 const cards = [
-    {
-        image: "/cards/card1.jpg",
-        title: "Happy Birthday",
-    },
-    {
-        image: "/cards/card2.jpg",
-        title: "Wedding Wishes",
-    },
-    {
-        image: "/cards/card3.jpg",
-        title: "Farewell Memories",
-    },
-    {
-        image: "/cards/card4.jpg",
-        title: "Giáng Sinh Ấm Áp",
-    },
-    {
-        image: "/cards/card5.jpg",
-        title: "Happy New Year",
-    },
-    {
-        image: "/cards/card6.jpg",
-        title: "Thank You",
-    },
-    {
-        image: "/cards/card7.jpg",
-        title: "Team Memories",
-    },
-    {
-        image: "/cards/card8.jpg",
-        title: "Best Friends",
-    },
-    {
-        image: "/cards/card9.jpg",
-        title: "Love Notes",
-    },
-    {
-        image: "/cards/card10.jpg",
-        title: "Congratulations",
-    },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card2.jpg", category: "Sinh nhật" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card3.jpg", category: "Chia tay đồng nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card4.jpg", category: "Tốt nghiệp" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Tri ân thầy cô" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Đám cưới" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Bé yêu" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" },
+  { image: "/cards/card1.jpg", category: "Khác" }
 ];
 
 export default function TemplateSlider() {
-    return (
-        <div className="relative mt-12 px-4 right-4">
+  const [active, setActive] = useState<string>(categories[0]);
 
-            {/* Left Arrow */}
-            <button className="swiper-button-prev-custom absolute left-16 top-1/2 z-20 h-10 w-10 -translate-y-1/2 rounded-full bg-black/35 transition duration-300 hover:scale-110 hover:bg-black/45">
-                <ChevronLeft className="m-auto h-6 w-6 text-white" />
-            </button>
+  const filtered = cards.filter((c) => c.category === active);
 
-            {/* Right Arrow */}
-            <button className="swiper-button-next-custom absolute right-7 top-1/2 z-20 h-10 w-10 -translate-y-1/2 rounded-full bg-black/35 transition duration-300 hover:scale-110 hover:bg-black/45">
-                <ChevronRight className="m-auto h-6 w-6 text-white" />
-            </button>
+  return (
+    <section className="mt-12 w-full">
+      <div className="mx-auto max-w-[1500px] px-4">
+        <h2 className="text-center text-4xl mb-3">Dành cho mọi dịp đặc biệt</h2>
+        <p className="text-center text-lg text-neutral-500 mb-6">Hơn 300 mẫu thiết kế độc đáo!</p>
 
-            <Swiper
-                style={{
-                    padding: "0 10px 0 45px",
-                }}
-                modules={[Autoplay, Navigation]}
-                navigation={{
-                    prevEl: ".swiper-button-prev-custom",
-                    nextEl: ".swiper-button-next-custom",
-                }}
-                autoplay={{
-                    delay: 10000,
-                    disableOnInteraction: false,
-                }}
-                loop={true}
-                spaceBetween={50}
-                slidesPerView={5}
-                grabCursor={true}
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-colors duration-150 ${
+                  active === cat
+                    ? "bg-[#FF9F29] border-1 border-[#FF9F29] text-white"
+                    : "border-1 border-[#2BC3E6] text-[#2BC3E6] bg-transparent hover:bg-[#FF9F29] hover:border-[#FF9F29] hover:text-white"
+              }`}
             >
-                {cards.map((card, index) => (
-                    <SwiperSlide key={index}>
-
-                        <div className="overflow-visible py-6">
-                            <div className="transition-all duration-500 ease-out hover:scale-110">
-
-                                <div className="relative">
-
-                                    {/* Shadow */}
-                                    <div
-                                        className="pointer-events-none absolute bottom-9 left-[-65px] z-[-1] h-[40px] w-[160px] bg-contain bg-bottom bg-no-repeat opacity-70"
-                                        style={{
-                                            backgroundImage: "url('/shadow/carousel_shadow.svg')",
-                                        }}
-                                    />
-
-                                    {/* Image */}
-                                    <div className="overflow-hidden rounded-none">
-                                        <img
-                                            src={card.image}
-                                            alt="Template Card"
-                                            className="aspect-square w-full object-cover"
-                                        />
-                                    </div>
-
-                                    {/* Title */}
-                                    <p className="mt-4 text-center text-sm font-medium tracking-wide text-neutral-700">
-                                        {card.title}
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+              {cat}
+            </button>
+          ))}
         </div>
-    );
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1 mx-auto justify-items-center mb-6">
+          {filtered.map((card, idx) => (
+              <div key={idx} className="max-w-[240px] w-full group flex items-center justify-center transition duration-200 ease-out hover:-translate-y-2 hover:shadow-lg border-2 border-transparent hover:border-[rgb(216,206,224)] bg-[#f5f3f8] p-5">
+                <div className="relative w-full overflow-hidden bg-white mx-auto">
+                  <img src={card.image} alt={card.category} className="w-full h-full border-1 border-[#2BC3E6] object-cover block transition duration-200 ease-out group-hover:brightness-105" />
+                </div>
+              </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-colors duration-150 border border-[#2BC3E6] text-[#2BC3E6] bg-transparent hover:bg-[#FF9F29] hover:border-[#FF9F29] hover:text-white">
+            Xem tất cả mẫu
+          </button>
+        </div>
+      </div>
+    </section>
+  );
 }

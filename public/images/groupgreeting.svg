@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thiệp Chung mark">
+  <title>Thiệp Chung mark</title>
+  <!-- circular mark -->
+  <circle cx="24" cy="24" r="22" fill="#FF9F29" />
+  <!-- simplified crown icon centered -->
+  <path d="M16 30 L18 22 L22 26 L24 20 L26 26 L30 22 L32 30 L16 30 Z" fill="#fff" opacity="0.98" transform="translate(0,-2) scale(0.95) translate(0,2)"/>
+</svg>

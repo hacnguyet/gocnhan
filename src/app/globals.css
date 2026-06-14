@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* reset to white */
+  --foreground: #0f172a; /* slate-900 for good contrast */
+  --primary: #ff6a00; /* warm orange */
+  --primary-600: #ff5a00;
+  --muted: #f7ede6;
 }
 
 @theme inline {
@@ -22,9 +25,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 28%),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
@@ -44,3 +45,13 @@ select {
 .font-logo {
   font-family: var(--font-logo);
 }
+
+/* Utility for primary color usage */
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-600); }
+
+/* Custom hover color to match rgb(85,26,139) */
+.hover-rgb-551a8b:hover { color: rgb(85,26,139); }
+.hover-rgb-551a8b { transition: color 150ms ease-in-out; }

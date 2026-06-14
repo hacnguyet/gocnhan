@@ -1,18 +1,18 @@
 export default function PricingSection() {
   return (
-    <section className="mt-32 px-6">
+    <section className="mt-12 w-full">
 
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
         <div className="text-center">
 
-          <h2 className="text-5xl font-bold tracking-tight text-neutral-900">
+          <h2 className="text-center text-4xl mb-10 mt-20">
             Bảng giá
           </h2>
 
-          <p className="mt-5 text-xl font-medium text-neutral-600">
-            Chọn hình thức lưu giữ kỷ niệm phù hợp nhất 💌
+          <p className="text-center text-lg text-neutral-500 mb-6">
+            Chọn hình thức lưu giữ kỷ niệm phù hợp nhất với bạn!
           </p>
 
         </div>
@@ -43,7 +43,7 @@ export default function PricingSection() {
             </p>
 
             <p className="mt-8 text-center text-5xl font-bold text-orange-500">
-              299k
+              50k
             </p>
 
             <p className="mt-2 text-center text-sm text-neutral-400">
@@ -53,33 +53,6 @@ export default function PricingSection() {
           </div>
 
           {/* Card 2 */}
-          <div className="rounded-[36px] bg-neutral-50 p-10">
-
-            <img
-              src="/pricing/pdf.png"
-              alt="PDF"
-              className="mx-auto h-[180px] object-contain"
-            />
-
-            <h3 className="mt-8 text-center text-3xl font-bold text-neutral-900">
-              Tải PDF
-            </h3>
-
-            <p className="mt-3 text-center text-neutral-500">
-              Tải ngay file chất lượng cao sau khi hoàn thành
-            </p>
-
-            <p className="mt-8 text-center text-5xl font-bold text-orange-500">
-              59k
-            </p>
-
-            <p className="mt-2 text-center text-sm text-neutral-400">
-              Không watermark
-            </p>
-
-          </div>
-
-          {/* Card 3 */}
           <div className="rounded-[36px] bg-neutral-50 p-10">
 
             <img
